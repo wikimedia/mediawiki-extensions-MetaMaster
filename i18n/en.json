@@ -4,5 +4,5 @@
 			"tosfos"
 		]
 	},
-	"metamaster-desc": "A parser function that allows adding HTML <meta> tags to the page header"
+	"metamaster-desc": "A parser function that allows adding HTML <code><meta></code> tags to the page header"
 }
