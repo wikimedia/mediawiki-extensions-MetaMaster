@@ -9,7 +9,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"AutoloadClasses": {
-		"MetaMasterHooks": "MetaMaster.hooks.php"
+		"MetaMasterHooks": "MetaMasterHooks.php"
 	},
 	"config": {
 		"MetaMasterEnableFoo": true
