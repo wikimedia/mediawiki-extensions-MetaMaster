@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad"
 		]
 	},
 	"metamaster-desc": "Uma função do analisador sintático que permite adicionar etiquetas HTML <code><meta></code> ao cabeçalho da página"
