@@ -63,6 +63,7 @@ class MetaMasterHooks {
 	public static function onOutputPageParserOutput( OutputPage &$out, ParserOutput $parseroutput ) {
 		for ( $i = 0; $i < self::$num; $i++ ) {
 			$meta = $parseroutput->getExtensionData( 'metaMaster-' . $i );
+			// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
 			$out->addMeta( $meta['name'], $meta['content'] );
 		}
 	}
