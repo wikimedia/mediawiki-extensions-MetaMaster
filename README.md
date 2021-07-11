@@ -1,5 +1,5 @@
 # MetaMaster
-A parser function that allows adding HTML <meta> tags to the page header
+A parser function that allows adding HTML <meta> tags to the page header.
 
 ## Features
  * [Parser hook](https://www.mediawiki.org/wiki/Manual:Parser_functions) (MetaMaster/MetaMasterHooks.php)
