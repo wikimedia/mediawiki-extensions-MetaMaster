@@ -18,13 +18,21 @@
  * @file
  */
 
+namespace MediaWiki\Extension\MetaMaster;
+
+use MediaWiki\Hook\OutputPageParserOutputHook;
+use MediaWiki\Hook\ParserFirstCallInitHook;
+use OutputPage;
+use Parser;
+use ParserOutput;
+
 /**
  * Hooks for MetaMaster extension
  *
  * @file
  * @ingroup Extensions
  */
-class MetaMasterHooks {
+class MetaMasterHooks implements ParserFirstCallInitHook, OutputPageParserOutputHook {
 	/**
 	 * Tracks the number of calls to the parser hook
 	 *
@@ -35,20 +43,23 @@ class MetaMasterHooks {
 	/**
 	 * Adds the parser hook
 	 *
-	 * @param Parser &$parser
+	 * @param Parser $parser
 	 */
-	public static function onParserFirstCallInit( Parser &$parser ) {
-		$parser->setFunctionHook( 'metamaster', 'MetaMasterHooks::addMeta' );
+	public function onParserFirstCallInit( $parser ) {
+		$parser->setFunctionHook(
+			'metamaster',
+			[ self::class, 'addMeta' ]
+		);
 	}
 
 	/**
 	 * Parse the parser input and get it ready for output
 	 *
-	 * @param Parser &$parser
+	 * @param Parser $parser
 	 * @param string $name
 	 * @param string $content
 	 */
-	public static function addMeta( Parser &$parser, $name, $content ) {
+	public static function addMeta( Parser $parser, $name, $content ) {
 		$meta = [ 'name' => htmlspecialchars( $name ), 'content' => htmlspecialchars( $content ) ];
 		$parser->getOutput()->setExtensionData( 'metaMaster-' . self::$num, $meta );
 		self::$num++;
@@ -57,10 +68,10 @@ class MetaMasterHooks {
 	/**
 	 * Add the meta tag to the output
 	 *
-	 * @param OutputPage &$out
+	 * @param OutputPage $out
 	 * @param ParserOutput $parseroutput
 	 */
-	public static function onOutputPageParserOutput( OutputPage &$out, ParserOutput $parseroutput ) {
+	public function onOutputPageParserOutput( $out, $parseroutput ): void {
 		for ( $i = 0; $i < self::$num; $i++ ) {
 			$meta = $parseroutput->getExtensionData( 'metaMaster-' . $i );
 			// @phan-suppress-next-line PhanTypeArraySuspiciousNullable

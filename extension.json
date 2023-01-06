@@ -1,6 +1,6 @@
 {
 	"name": "MetaMaster",
-	"version": "0.1.1",
+	"version": "0.2.0",
 	"author": [
 		"Ike Hecht"
 	],
@@ -9,25 +9,36 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.39.0"
 	},
-	"AutoloadClasses": {
-		"MetaMasterHooks": "includes/MetaMasterHooks.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\MetaMaster\\": "includes/"
 	},
 	"config": {
-		"MetaMasterEnableFoo": true
+		"MetaMasterEnableFoo": {
+			"value": true
+		}
 	},
 	"ExtensionMessagesFiles": {
 		"MetaMasterMagic": "MetaMaster.i18n.magic.php"
 	},
+	"HookHandlers": {
+		"MetaMaster": {
+			"class": "MediaWiki\\Extension\\MetaMaster\\MetaMasterHooks"
+		}
+	},
 	"Hooks": {
-		"ParserFirstCallInit": "MetaMasterHooks::onParserFirstCallInit",
-		"OutputPageParserOutput": "MetaMasterHooks::onOutputPageParserOutput"
+		"ParserFirstCallInit": {
+			"handler": "MetaMaster"
+		},
+		"OutputPageParserOutput": {
+			"handler": "MetaMaster"
+		}
 	},
 	"MessagesDirs": {
 		"MetaMaster": [
 			"i18n"
 		]
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
