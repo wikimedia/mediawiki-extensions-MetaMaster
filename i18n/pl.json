@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Woytecr"
+		]
+	},
+	"metamaster-desc": "Funkcja parsera, która umożliwia dodawanie znaczników HTML <code><meta></code> do nagłówka strony"
+}
