@@ -4,5 +4,5 @@
 			"Eleassar"
 		]
 	},
-	"metamaster-desc": "Funkcija razčlenjevalnika, ki doda glavi strani HTML-značke <code><meta></code>"
+	"metamaster-desc": "Funkcija razčlenjevalnika, ki glavi strani doda HTML-značke <code><meta></code>"
 }
