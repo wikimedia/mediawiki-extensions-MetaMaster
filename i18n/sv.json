@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Stefan2255"
+		]
+	},
+	"metamaster-desc": "En parserfunktion som tillåter att lägga till HTML<code><meta></code> taggar till sidhuvudet"
+}
